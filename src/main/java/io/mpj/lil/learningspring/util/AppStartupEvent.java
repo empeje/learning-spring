@@ -27,5 +27,8 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
 
         Iterable<Reservation> reservations = reservation.findAll();
         reservations.forEach(System.out::println);
+
+        Iterable<Reservation> res1 = reservation.findReservationByResDate(reservation.findAll().get(0).getResDate());
+        res1.forEach(System.out::println);
     }
 }
