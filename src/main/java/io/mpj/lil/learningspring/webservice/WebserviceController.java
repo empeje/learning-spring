@@ -39,7 +39,7 @@ public class WebserviceController {
 
     @PostMapping("/guests")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createGuest(@RequestBody Guest payload) {
-        this.guestService.createGuest(payload);
+    public Guest createGuest(@RequestBody Guest payload) {
+        return this.guestService.createGuest(payload);
     }
 }
