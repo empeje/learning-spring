@@ -1,13 +1,15 @@
 package io.mpj.lil.learningspring.data;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="GUEST")
 public class Guest {
     @Id
-    @GeneratedValue
     @Column(name="GUEST_ID")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
 
     @Column(name="LAST_NAME")

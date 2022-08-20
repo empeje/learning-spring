@@ -1,0 +1,13 @@
+### Send POST request with json body
+POST http://localhost:8080/api/guests
+Content-Type: application/json
+
+{
+  "firstName": "Jack",
+  "lastName": "Dorseeeey",
+  "emailAddress": "jack@twitter.com",
+  "country": "USA",
+  "address": "123 Main St",
+  "state": "CA",
+  "phoneNumber": "1234567890"
+}

@@ -3,14 +3,14 @@ package io.mpj.lil.learningspring.webservice;
 import io.mpj.lil.learningspring.business.GuestService;
 import io.mpj.lil.learningspring.business.ReservationService;
 import io.mpj.lil.learningspring.business.RoomReservation;
+import io.mpj.lil.learningspring.data.Guest;
 import io.mpj.lil.learningspring.util.DateUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -30,5 +30,16 @@ public class WebserviceController {
             @RequestParam(value = "date", required = false) String dateString) {
         Date date = this.dateUtils.createDateFromDateString(dateString);
         return this.reservationService.getRoomReservationsForDate(date);
+    }
+
+    @GetMapping("/guests")
+    public List<Guest> getGuests() {
+        return this.guestService.getAllGuests();
+    }
+
+    @PostMapping("/guests")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createGuest(@RequestBody Guest payload) {
+        this.guestService.createGuest(payload);
     }
 }
