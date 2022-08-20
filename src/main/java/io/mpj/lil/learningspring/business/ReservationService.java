@@ -18,10 +18,17 @@ public class ReservationService {
     private final GuestRepository guestRepository;
     private final ReservationRepository reservationRepository;
 
+    @Autowired
     public ReservationService(RoomRepository roomRepository, GuestRepository guestRepository, ReservationRepository reservationRepository) {
         this.roomRepository = roomRepository;
         this.guestRepository = guestRepository;
         this.reservationRepository = reservationRepository;
+    }
+
+    public ReservationService(RoomRepository roomRepository, GuestRepository guestRepository) {
+        this.roomRepository = roomRepository;
+        this.guestRepository = guestRepository;
+        this.reservationRepository = null;
     }
 
     public List<RoomReservation> getRoomReservationsForDate(Date date) {
