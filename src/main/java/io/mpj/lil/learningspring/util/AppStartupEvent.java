@@ -13,23 +13,20 @@ import java.util.List;
 
 @Component
 public class AppStartupEvent implements ApplicationListener<ApplicationReadyEvent> {
-    @Autowired
     private final RoomRepository roomRepository;
-    @Autowired
     private final GuestRepository guestRepository;
-    @Autowired
     private final ReservationRepository reservation;
 
-    @Autowired
-    private ReservationService reservationService;
+    private final ReservationService reservationService;
 
-    @Autowired
-    private DateUtils dateUtils;
+    private final DateUtils dateUtils;
 
-    public AppStartupEvent(RoomRepository roomRepository, GuestRepository guestRepository, ReservationRepository reservation) {
+    public AppStartupEvent(RoomRepository roomRepository, GuestRepository guestRepository, ReservationRepository reservation, ReservationService reservationService, DateUtils dateUtils) {
         this.roomRepository = roomRepository;
         this.guestRepository = guestRepository;
         this.reservation = reservation;
+        this.reservationService = reservationService;
+        this.dateUtils = dateUtils;
     }
 
     @Override
