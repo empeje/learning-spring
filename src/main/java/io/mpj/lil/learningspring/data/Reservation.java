@@ -8,8 +8,12 @@ import java.sql.Date;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ROOM_ID")
+    @Column(name = "RESERVATION_ID")
     private Long id;
+
+
+    @Column(name = "ROOM_ID")
+    private long roomId;
 
     @Column(name = "GUEST_ID")
     private Long guestId;
@@ -39,6 +43,14 @@ public class Reservation {
 
     public void setResDate(Date resDate) {
         this.resDate = resDate;
+    }
+
+    public long getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(long roomId) {
+        this.roomId = roomId;
     }
 
     @Override

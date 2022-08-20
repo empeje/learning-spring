@@ -7,6 +7,9 @@ import javax.persistence.*;
 public class Guest {
     @Id
     @GeneratedValue
+    @Column(name="GUEST_ID")
+    private long id;
+
     @Column(name="LAST_NAME")
     private String lastName;
 
@@ -78,6 +81,14 @@ public class Guest {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public void setPhoneNumber(String phoneNumber) {
